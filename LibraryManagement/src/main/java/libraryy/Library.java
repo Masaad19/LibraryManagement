@@ -5,11 +5,11 @@ public class Library {
 
     public void addBook(Book book) {
         books.add(book);
-        System.out.println("📘 Book added: " + book.getTitle());
+        System.out.println(" Book added: " + book.getTitle());
     }
 
     public void searchBook(String keyword) {
-        System.out.println("🔍 Search results:");
+        System.out.println(" Search results:");
         for (Book b : books) {
             if (b.getTitle().toLowerCase().contains(keyword.toLowerCase())
                 || b.getAuthor().toLowerCase().contains(keyword.toLowerCase())
@@ -17,5 +17,13 @@ public class Library {
                 System.out.println(b);
             }
         }
+    }
+    public Book findBook(String isbn) {
+        for (Book b : books) {
+            if (b.getIsbn().equalsIgnoreCase(isbn)) {
+                return b;
+            }
+        }
+        return null;
     }
 }
