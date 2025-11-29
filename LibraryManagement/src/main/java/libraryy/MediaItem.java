@@ -4,7 +4,7 @@ public abstract class MediaItem {
 	protected String title;
     protected boolean available = true;
     protected LocalDate borrowDate;
-    protected LocalDate dueDate;
+    public LocalDate dueDate;
 
     public abstract int getBorrowPeriod();
     public abstract int calculateFine(int overdueDays);
