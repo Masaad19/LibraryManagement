@@ -74,7 +74,28 @@ public class Main {
                 case 5:
                     payFine(user);
                     break;
+                    
 
+                case 6:
+                    showReport(reportService, library);
+                    break;
+
+                case 7:
+                    reminderService.sendReminders(user, loans);
+                    break;
+
+                case 8:
+                    unregisterUser(user, admin, loans, ums);
+                    break;
+
+                case 9:
+                    admin.logout();
+                    break;
+
+                case 0:
+                    running = false;
+                    System.out.println("Goodbye");
+                    break;
                 default:
                     System.out.println(" Invalid choice!");}
         }
@@ -148,5 +169,34 @@ public class Main {
 
         System.out.println(" New balance: " + user.getUnpaidFines());
     }
+    private static void showReport(OverdueReportService reportService, Library library) {
+
+        List<MediaItem> all = new ArrayList<>(library.getBooks());
+
+        OverdueReport r = reportService.generate(all, LocalDate.now());
+
+        System.out.println("\n=== OVERDUE REPORT ===");
+        System.out.println("Total fine: " + r.getTotalFine());
+
+        for (MediaItem m : r.getItems()) {
+            System.out.println(" - " + m.title);
+        }
+    }
+
+    private static void unregisterUser(User user,
+                                       Admin admin,
+                                       List<Borrow> loans,
+                                       UserManagementService ums) {
+
+        try {
+            boolean ok = ums.unregister(user, loans, admin.isLoggedIn());
+
+            if (ok)
+                System.out.println("User removed successfully!");
+
+        } catch (Exception e) {
+            System.out.println("Cannot unregister: " + e.getMessage());
+        }
+    } 
 
     }
