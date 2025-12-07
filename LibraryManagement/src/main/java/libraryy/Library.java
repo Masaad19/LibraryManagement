@@ -1,7 +1,8 @@
 package libraryy;
 import java.util.*;
+
 public class Library {
-	private List<Book> books = new ArrayList<>();
+    private List<MediaItem> books = new ArrayList<>();
 
     public void addBook(Book book) {
         books.add(book);
@@ -10,25 +11,32 @@ public class Library {
 
     public void searchBook(String keyword) {
         System.out.println(" Search results:");
-        for (Book b : books) {
-            if (b.getTitle().toLowerCase().contains(keyword.toLowerCase())
-                || b.getAuthor().toLowerCase().contains(keyword.toLowerCase())
-                || b.getIsbn().equalsIgnoreCase(keyword)) {
-                System.out.println(b);
+        for (MediaItem m : books) {
+            if (m instanceof Book) {
+                Book b = (Book) m;
+                if (b.getTitle().toLowerCase().contains(keyword.toLowerCase())
+                    || b.getAuthor().toLowerCase().contains(keyword.toLowerCase())
+                    || b.getIsbn().equalsIgnoreCase(keyword)) {
+                    System.out.println(b);
+                }
             }
         }
     }
+
     public Book findBook(String isbn) {
-        for (Book b : books) {
-            if (b.getIsbn().equalsIgnoreCase(isbn)) {
-                return b;
+        for (MediaItem m : books) {
+            if (m instanceof Book) {
+                Book b = (Book) m;
+                if (b.getIsbn().equalsIgnoreCase(isbn)) {
+                    return b;
+                }
             }
         }
         return null;
     }
-
-	public List<Book> getBooks() {
+	public List<MediaItem> getBooks() {
 		
 		return books;
 	}
 }
+   

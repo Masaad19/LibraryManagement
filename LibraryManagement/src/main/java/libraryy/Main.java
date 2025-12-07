@@ -74,9 +74,11 @@ public class Main {
                 case 5:
                     payFine(user);
                     break;
+
                 case 6:
                 	showReport(reportService, loans);
                     break;
+                    
 
                 case 7:
                     reminderService.sendReminders(user, loans);
@@ -93,7 +95,8 @@ public class Main {
                 case 0:
                     running = false;
                     System.out.println("Goodbye ");
-                    break;
+
+  
                 default:
                     System.out.println(" Invalid choice!");}
         }
@@ -167,6 +170,7 @@ public class Main {
 
         System.out.println(" New balance: " + user.getUnpaidFines());
     }
+
     private static void showReport(OverdueReportService reportService, List<Borrow> loans) {
 
         if (loans.isEmpty()) {
@@ -197,5 +201,6 @@ public class Main {
             System.out.println(" Cannot unregister: " + e.getMessage());
         }
     }
-
     }
+
+  
