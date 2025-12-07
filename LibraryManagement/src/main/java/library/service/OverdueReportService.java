@@ -1,23 +1,27 @@
 package library.service;
 
-import libraryy.MediaItem;
+import libraryy.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OverdueReportService {
 
-    public OverdueReport generate(List<MediaItem> items, LocalDate today) {
+	public OverdueReport generateReport(List<Borrow> loans, LocalDate today) {
 
-        List<MediaItem> overdueList = new ArrayList<>();
-        int total = 0;
+        List<MediaItem> overdue = new ArrayList<>();
+        int totalFine = 0;
 
-        for (MediaItem item : items) {
-            if (item.isOverdue(today)) {
-                overdueList.add(item);
-                total += item.calculateFine(item.overdueDays(today));
+        for (Borrow b : loans) {
+            if (b.isOverdue(today)) {
+            	MediaItem item = b.getItem();
+
+                overdue.add(item);
+
+                totalFine += b.getOverdueDays(today) * item.getBorrowPeriod();
             }
         }
-        return new OverdueReport(overdueList, total);
+
+        return new OverdueReport(overdue, totalFine);
     }
 }

@@ -26,4 +26,9 @@ public class Library {
         }
         return null;
     }
+
+	public List<Book> getBooks() {
+		
+		return books;
+	}
 }

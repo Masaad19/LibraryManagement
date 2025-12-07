@@ -27,4 +27,8 @@ public abstract class MediaItem {
     public boolean isAvailable() {
         return available;
     }
+	public String getTitle() {
+		
+		return title;
+	}
 }

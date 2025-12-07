@@ -1,18 +1,18 @@
 package libraryy;
 import java.time.LocalDate;
 public class Borrow {
-	private Book book;
+	private MediaItem item;
     private LocalDate borrowDate;
     private LocalDate dueDate;
 
-    public Borrow(Book book, LocalDate borrowDate, int period) {
-        this.book = book;
+    public Borrow(MediaItem item, LocalDate borrowDate, int period) {
+        this.item = item;
         this.borrowDate = borrowDate;
         this.dueDate = borrowDate.plusDays(period);
     }
 
-    public Book getBook() {
-        return book;
+    public MediaItem getItem() {
+        return item;
     }
 
     public LocalDate getDueDate() {
