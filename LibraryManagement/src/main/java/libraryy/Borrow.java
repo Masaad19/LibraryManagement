@@ -1,5 +1,12 @@
 package libraryy;
 import java.time.LocalDate;
+/**
+ * Represents a borrowing operation.
+ * Stores the borrowed item, the borrow date, and automatically computes the due date.
+ *
+ * Provides methods to check if the item is overdue and calculate overdue days.
+ */
+
 public class Borrow {
 	private MediaItem item;
     private LocalDate borrowDate;

@@ -1,6 +1,11 @@
 
 package libraryy;
 import java.util.*;
+/**
+ * Represents a book as a media item in the library.
+ * Each book has a title, author, and ISBN, and supports borrowing rules
+ * such as borrow period, fine calculation, and overdue detection.
+ */
 
 import library.service.BookFine;
 public class Book extends MediaItem {

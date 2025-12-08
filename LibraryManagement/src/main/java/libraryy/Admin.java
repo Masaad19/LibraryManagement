@@ -1,4 +1,9 @@
 package libraryy;
+/**
+ * Represents the admin of the library system.
+ * Supports login functionality required for performing restricted actions
+ * like adding books and unregistering users.
+ */
 
 public class Admin {
 	private String username;

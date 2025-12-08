@@ -1,4 +1,9 @@
 package libraryy;
+/**
+ * Represents a library user.
+ * Stores basic user information such as name, email, and unpaid fines.
+ * Users accumulate fines and can make payments.
+ */
 
 
 public class User {

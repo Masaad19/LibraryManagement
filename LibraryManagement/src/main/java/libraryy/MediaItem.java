@@ -1,5 +1,11 @@
 package libraryy;
 import java.time.LocalDate;
+/**
+ * Abstract parent class for all media items in the library.
+ * Provides basic properties such as title and availability, and defines
+ * shared behaviors including borrowing, fine calculation, and overdue checks.
+ */
+
 public abstract class MediaItem {
 	protected String title;
     protected boolean available = true;
