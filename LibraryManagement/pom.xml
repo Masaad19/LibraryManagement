@@ -79,5 +79,8 @@
 
         </plugins>
     </build>
-
+<properties>
+  <sonar.organization>yomna-najaho23</sonar.organization>
+</properties>
 </project>
+
